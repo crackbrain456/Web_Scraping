@@ -1,0 +1,18 @@
+
+#function for web scrapping
+def news(url,classul,classdiv): 
+    resp=requests.get(url) 
+    if resp.status_code==200: 
+        text_to_voice("The news are as follow")  
+        soup=BeautifulSoup(resp.text,'html.parser')       
+        l=soup.find("ul",{"class": classul}) 
+        f = open("C:\\Users\\HP\\Desktop\\news.txt", "w")
+        for i in l.findAll("div",{"class": classdiv}): 
+            #print(i.text) 
+            f = open("C:\\Users\\HP\\Desktop\\news.txt", "a", encoding="utf-8")
+            f.write(i.text)
+            f.close()
+        f = open("C:\\Users\\HP\\Desktop\\news.txt", "r", encoding="utf-8")
+        d = f.read()
+        
+news('https://www.hindustantimes.com/top-news',"latest-news-bx more-latest-news more-separate","media-heading headingfour")
