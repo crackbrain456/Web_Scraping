@@ -1,4 +1,4 @@
-# Web_Scarpping
+# Web_Scraping
 Python code for Web scrapping
 call finction by url of website and classul and classdiv
 and get data of web
